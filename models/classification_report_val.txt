@@ -1,0 +1,11 @@
+              precision    recall  f1-score   support
+
+     chicken     0.9697    1.0000    0.9846        32
+        duck     1.0000    1.0000    1.0000        25
+         emu     0.0000    0.0000    0.0000         2
+     ostrich     1.0000    1.0000    1.0000         1
+      turkey     0.6667    1.0000    0.8000         2
+
+    accuracy                         0.9677        62
+   macro avg     0.7273    0.8000    0.7569        62
+weighted avg     0.9413    0.9677    0.9533        62

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Egg Classifier</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 flex items-center justify-center min-h-screen">
+  <div class="bg-white shadow-xl rounded-2xl p-8 w-full max-w-xl text-center">
+    <h1 class="text-3xl font-bold text-indigo-600 mb-4">🥚 Egg Classifier AI</h1>
+    <p class="text-gray-600 mb-6">Upload an egg image to identify its type and details.</p>
+
+    <form method="post" enctype="multipart/form-data" class="mb-6">
+      <input type="file" name="file" required
+             class="block w-full text-sm text-gray-700 border border-gray-300 rounded-lg cursor-pointer p-2 mb-4">
+      <button type="submit"
+              class="px-6 py-2 bg-indigo-600 text-white rounded-lg shadow-md hover:bg-indigo-700 transition">
+        Predict Egg Type
+      </button>
+    </form>
+
+    {% if uploaded_file %}
+      <div class="mb-6">
+        <img src="{{ uploaded_file }}" alt="Uploaded Egg"
+             class="mx-auto rounded-lg shadow-md w-48 h-48 object-cover">
+      </div>
+    {% endif %}
+
+    {% if prediction %}
+      <h2 class="text-2xl font-semibold text-green-600">Prediction: {{ prediction | capitalize }}</h2>
+      <div class="text-left mt-4 bg-gray-50 p-4 rounded-lg shadow">
+        <p><b>Scientific Name:</b> {{ details.scientific_name }}</p>
+        <p><b>Average Weight:</b> {{ details.avg_weight }}</p>
+        <p><b>Shell Color:</b> {{ details.shell_color }}</p>
+        <p><b>Notes:</b> {{ details.notes }}</p>
+      </div>
+    {% endif %}
+  </div>
+</body>
+</html>
