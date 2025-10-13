@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Egg Encyclopedia - {{ egg_type }}</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/">🐣 Egg Species Classifier</a>
+    </div>
+  </nav>
+
+  <div class="container my-5">
+    <div class="row justify-content-center">
+      <div class="col-md-8">
+        <div class="card shadow">
+          <img src="{{ url_for('static', filename=info.image) }}" class="card-img-top" alt="{{ egg_type }} Egg" onerror="this.src='{{ url_for('static', filename='images/fallback_egg.jpg') }}';">
+          <div class="card-body">
+            <h3 class="card-title text-center">{{ egg_type }}</h3>
+            <p class="text-center text-muted"><em>{{ info.scientific_name }}</em></p>
+            <p><strong>Color & Size:</strong> {{ info.color_size }}</p>
+            <p><strong>Habitat:</strong> {{ info.habitat }}</p>
+            <p><strong>Fun Fact:</strong> {{ info.fun_fact }}</p>
+            <p><strong>Nutrition:</strong> {{ info.nutrition }}</p>
+            <p><strong>Common Uses:</strong> {{ info.uses }}</p>
+            <a href="/" class="btn btn-primary mt-3">Back to Home</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
